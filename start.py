@@ -2,15 +2,21 @@
 import time
 import subprocess
 import _thread
+import os
+import signal
 
 upToDate = True
 
 def ipUpdaterThread(name):
     print("starting ipUpdaterThread")
     global upToDate
+    counter = 0
     while(upToDate):
-        subprocess.Popen(['.//..//updateip.sh'])
-        time.sleep(60)
+        counter += 1
+        if counter>60:
+            subprocess.Popen(['.//..//updateip.sh'])
+            counter -= 60
+        time.sleep(1)
     print("killing ipUpdaterThread")
 
 def gitUpdaterThread(name):
@@ -24,20 +30,21 @@ def gitUpdaterThread(name):
         if(output != "b'Already up-to-date.\\n'"):
             print('Resetting')
             upToDate = False
-            time.sleep(65)
+            time.sleep(5)
             subprocess.Popen(['git','pull'])
             subprocess.Popen(['python3','../autorun.py'])
             print("killing gitUpdaterThread")
             exit(0)
-        time.sleep(60)
+        time.sleep(3)
 
 def startServerThread(name):
     print("starting startServerThread")
     global upToDate
     process = subprocess.Popen(['.//start.sh'])
     while(upToDate):
-        time.sleep(60)
-    process.kill()
+        time.sleep(1)
+    os.kill(process.pid,signal.SIGKILL)
+    process = subprocess.Popen(['pkill','flask'])
     print("killing startServerThread")
 
 _thread.start_new_thread(ipUpdaterThread,('ip',))
