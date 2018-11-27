@@ -32,21 +32,16 @@ def gitUpdaterThread(name):
             print('Resetting')
             upToDate = False
             time.sleep(5)
+            print("killing startServerThread")
             process = subprocess.Popen(['pkill','flask'])
             process.wait()
             process = subprocess.Popen(['python3','autorun.py'])
             print("killing gitUpdaterThread")
+            exit(0)
         time.sleep(3)
 
 def startServerThread(name):
-    print("starting startServerThread")
-    global upToDate
     process = subprocess.Popen(['.//start.sh'])
-    while(upToDate):
-        time.sleep(1)
-    os.kill(process.pid,signal.SIGKILL)
-    process = subprocess.Popen(['pkill','flask'])
-    print("killing startServerThread")
 
 _thread.start_new_thread(ipUpdaterThread,('ip',))
 _thread.start_new_thread(startServerThread,('server',))
