@@ -35,7 +35,6 @@ def gitUpdaterThread(name):
             process = subprocess.Popen(['pkill','flask'])
             process.wait()
             process = subprocess.Popen(['python3','autorun.py'])
-            process.wait()
             print("killing gitUpdaterThread")
         time.sleep(3)
 
