@@ -25,16 +25,18 @@ def gitUpdaterThread(name):
     upToDate = True
     while(upToDate):
         process = subprocess.Popen(['git','pull'],stdout=subprocess.PIPE)
+        process.wait()
         output = str(process.stdout.readline())
         print('+'+output+'+')
         if(output != "b'Already up-to-date.\\n'"):
             print('Resetting')
             upToDate = False
             time.sleep(5)
-            subprocess.Popen(['git','pull'])
-            subprocess.Popen(['python3','../autorun.py'])
+            process = subprocess.Popen(['pkill','flask'])
+            process.wait()
+            process = subprocess.Popen(['python3','autorun.py'])
+            process.wait()
             print("killing gitUpdaterThread")
-            exit(0)
         time.sleep(3)
 
 def startServerThread(name):
