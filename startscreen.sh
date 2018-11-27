@@ -1,2 +1,2 @@
-#!/bin/bash
-screen -c 'python3 autorun.py'
+#!/bin/sh
+tmux -c "cd totally-not-youtube-flask; python3 ..//autorun.py"

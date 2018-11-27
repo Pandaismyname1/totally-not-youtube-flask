@@ -3,4 +3,4 @@ import time
 import subprocess
 
 time.sleep(65)
-subprocess.Popen(['python3','totally-not-youtube-flask/start.py'])
+subprocess.Popen(['python3','start.py'])

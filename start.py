@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 import time
 import subprocess
-import thread
+import _thread
 
 upToDate = True
 
-def ipUpdaterThread():
+def ipUpdaterThread(name):
     while(upToDate):
-        subprocess.Popen(['./../updateip.sh'])
+        subprocess.Popen(['.//..//updateip.sh'])
         time.sleep(60)
 
-def gitUpdaterThread():
+def gitUpdaterThread(name):
+    upToDate = True
     while(upToDate):
         process = subprocess.Popen(['git','pull'],stdout=subprocess.PIPE)
         if(process.stdout.readline() != 'Already up-to-date'):
@@ -20,12 +21,14 @@ def gitUpdaterThread():
             subprocess.Popen(['python3','../autorun.py'])
             exit(0)
 
-def startServerThread():
-    process = subprocess.Popen(['./start.sh'])
+def startServerThread(name):
+    process = subprocess.Popen(['.//start.sh'])
     while(upToDate):
-        sleep(60)
+        time.sleep(60)
     process.kill()
 
-thread.start_new_thread(ipUpdaterThread)
-thread.start_new_thread(startServerThread)
-thread.start_new_thread(gitUpdaterThread)
+_thread.start_new_thread(ipUpdaterThread,('ip',))
+_thread.start_new_thread(startServerThread,('server',))
+_thread.start_new_thread(gitUpdaterThread,('git',))
+while(True):
+    time.sleep(1000)
