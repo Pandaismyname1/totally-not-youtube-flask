@@ -1,4 +1,76 @@
-body
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: "Calibri", serif;
+}
+#appContainer
 {
-    background-color: white
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+            'main queue'
+            'controls queue';
+    grid-gap: 0px;
+    grid-template-rows: auto 5em;
+    grid-template-columns: auto 25em;
+}
+#mainContainer
+{
+    height: 100%;
+    width: 100%;
+    grid-area: main;
+    background-color: #ffffff;
+}
+#controlsContainer
+{
+    height: 100%;
+    width: 100%;
+    grid-area: controls;
+    display: grid;
+    grid-template-areas:
+            'playerControls playerInfo playerControlsAdvanced';
+    background-color: #ff0000;
+    grid-template-rows: auto;
+    grid-template-columns: 15em auto 10em ;
+}
+#queueContainer
+{
+    height: 100%;
+    width: 100%;
+    grid-area: queue;
+    background-color: #191919;
+}
+#playerControlsContainer
+{
+    height: 100%;
+    width: 100%;
+    grid-area: playerControls;
+    /*background-color: #191919;*/
+    font-size: 3.5em;
+    padding-top: 0.2em;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: #ffffff;
+}
+#playerControlsSecondaryContainer
+{
+    height: 100%;
+    width: 100%;
+    grid-area: playerControlsAdvanced;
+    /*background-color: #191919;*/
+    font-size: 2.5em;
+    padding-top: 0.5em;
+    letter-spacing: 0.3em;
+    text-align: center;
+    color: #ffffff;
+}
+#playerInfoContainer
+{
+    height: 100%;
+    width: 100%;
+    grid-area: playerInfo;
+    background-color: #ff0000;
+    line-height: 0em;
+    font-size: 1.4em;
+    color: #ffffff;
 }
