@@ -6,8 +6,13 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-    return '<a href="/searchVideo">Go To Search fasc</a>'
+def player():
+    return send_from_directory('front', 'player.html')
+
+
+@app.route('/resource/<resource>')
+def resource(resource):
+    return send_from_directory('front', resource)
 
 
 @app.route('/requestVideo')
