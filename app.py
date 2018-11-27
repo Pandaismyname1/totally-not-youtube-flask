@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return '<a href="/searchVideo">Go To Search edit2</a>'
+    return '<a href="/searchVideo">Go To Search</a>'
 
 
 @app.route('/requestVideo')
