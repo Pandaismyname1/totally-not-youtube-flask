@@ -23,7 +23,7 @@ def gitUpdaterThread(name):
             subprocess.Popen(['git','pull'])
             subprocess.Popen(['python3','../autorun.py'])
             exit(0)
-        sleep(60)
+        time.sleep(60)
 
 def startServerThread(name):
     process = subprocess.Popen(['.//start.sh'])
