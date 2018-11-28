@@ -89,12 +89,13 @@ function addQueueEntryUI(queueEntry)
     queueEntryContainer.style.height = '5em';
     queueEntryContainer.style.width = '24em';
     queueEntryContainer.style.padding = '0.5em';
+    queueEntryContainer.style.color = 'white';
 
     var queueEntryThumbnail = document.createElement('div');
     queueEntryThumbnail.id = 'queueEntryThumbnail' +queueEntry.link;
     queueEntryThumbnail.className = 'queueEntryThumbnail'
     queueEntryThumbnail.style.height = '5em';
-    queueEntryThumbnail.style.width = '24em';
+    queueEntryThumbnail.style.width = '8.888em';
     queueEntryThumbnail.style.cssFloat = 'left';
     queueEntryThumbnail.style.backgroundImage = 'url(/thumbnails/'+queueEntry.thumbnail+')';
 
