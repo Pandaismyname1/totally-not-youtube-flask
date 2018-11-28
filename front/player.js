@@ -51,7 +51,6 @@ function search() {
     request(obj,'/searchVideo?', searchCallback)
 }
 
-
 function playSong(url) {
     document.getElementById('audioPlayerSource').src = url;
     document.getElementById('audioPlayer').load();
@@ -65,6 +64,10 @@ function playNextSong() {
         queueIndex=0;
     }
     playSong(queue[queueIndex].link);
+}
+
+function playSongInQueue(index) {
+    playSong(queue[index].link);
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -113,6 +116,8 @@ function addQueueEntryUI(queueEntry)
     queueEntryPlay.style.bottom = '-2em';
     queueEntryPlay.style.position = 'relative';
     queueEntryPlay.style.cssFloat = 'left';
+    queuePosition = queue.length;
+    queueEntryPlay.addEventListener('ended', function() { playSongInQueue(queuePosition); } );
 
     queueEntryContainer.appendChild(queueEntryThumbnail);
     queueEntryContainer.appendChild(queueEntryTitle);
