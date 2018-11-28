@@ -54,8 +54,6 @@ def download(url):
         for chunk in chunks:
             outfile.write(chunk)
 
-    return yt.title+'.webm'
-
 def cleanCache():
     folder = 'cache'
     for the_file in os.listdir(folder):
@@ -76,3 +74,7 @@ def download_chunk(args):
 
     response = requests.get(url, headers={'Range': 'bytes=' + range_string})
     return response.content
+
+def getMeta(url):
+    yt = YouTube(url)
+    return yt.title, yt.thumbnail_url

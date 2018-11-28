@@ -1,6 +1,6 @@
 from flask import Flask, request,redirect,send_from_directory
 import json
-import videos,utils
+import videos,utils, downloader
 #
 app = Flask(__name__)
 
@@ -19,7 +19,8 @@ def resource(resource):
 def requestVideo():
     req = request.args['videoUrl']
     videos.downloadVideo(req)
-    return 'cache?videoId='+utils.extractVideoID(req)
+    meta = downloader.getMeta(req)
+    return 'cache?videoId='+utils.extractVideoID(req),meta[0],meta[1]
 
 
 @app.route('/searchVideo')

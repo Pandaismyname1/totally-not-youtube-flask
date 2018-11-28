@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from search import searchOnYoutube
-from downloader import download, searchInCache
+from downloader import download, searchInCache, getMeta
 
 import cgi
 import json

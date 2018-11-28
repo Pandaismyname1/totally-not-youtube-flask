@@ -16,7 +16,6 @@ function queueEntry(link, title, author, thumbnail)
 {
     this.link = link;
     this.title = title;
-    this.author = author;
     this.thumbnail = thumbnail;
 }
 
@@ -97,7 +96,7 @@ function addQueueEntryUI(queueEntry)
     queueEntryThumbnail.style.height = '5em';
     queueEntryThumbnail.style.width = '8.888em';
     queueEntryThumbnail.style.cssFloat = 'left';
-    queueEntryThumbnail.style.backgroundImage = 'url(/thumbnails/'+queueEntry.thumbnail+')';
+    queueEntryThumbnail.style.backgroundImage = 'url('+queueEntry.thumbnail+')';
 
     var queueEntryTitle = document.createElement('p');
     queueEntryTitle.id = 'queueEntryTitle' +queueEntry.link;
