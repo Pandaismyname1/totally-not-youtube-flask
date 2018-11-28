@@ -19,7 +19,7 @@ def resource(resource):
 def requestVideo():
     req = request.args['videoUrl']
     videos.downloadVideo(req)
-    meta = downloader.getMeta(req)
+    meta = downloader.getMeta("https://www.youtube.com/watch?v=" +req)
     return 'cache?videoId='+utils.extractVideoID(req),meta[0],meta[1]
 
 
