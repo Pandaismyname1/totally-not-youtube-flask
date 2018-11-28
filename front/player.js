@@ -52,10 +52,6 @@ function search() {
     request(obj,'/searchVideo?', searchCallback)
 }
 
-function searchCallback(url) {
-    let newSong = new queueEntry(url, null, null, null);
-    queue.push(newSong)
-}
 
 function playSong(url) {
     document.getElementById('audioPlayerSource').src = url;
@@ -71,6 +67,19 @@ function playNextSong() {
     }
     playSong(queue[queueIndex]);
 }
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// API Callbacks
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+function searchCallback(url) {
+    let newSong = new queueEntry(url, null, null, null);
+    queue.push(newSong);
+    console.log(queue);
+    console.log(newSong);
+    console.log(url)
+}
+
+
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // UI
