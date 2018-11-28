@@ -11,9 +11,14 @@
     <title>Title</title>
 </head>
 <body>
-    <audio id="audioPlayer"></audio>
+    <audio id="audioPlayer">
+        <source id="audioPlayerSource">
+    </audio>
     <div id="appContainer">
-        <div id="mainContainer"></div>
+        <div id="mainContainer">
+            <input id="searchInput" type="text" value="chainsmokers side effects">
+            <button onclick="search()">Search</button>
+        </div>
         <div id="controlsContainer">
             <div id="playerControlsContainer">
                 <i class="fas fa-chevron-left"></i>

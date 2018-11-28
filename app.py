@@ -19,7 +19,7 @@ def resource(resource):
 def requestVideo():
     req = request.args['videoUrl']
     videos.downloadVideo(req)
-    return redirect('cache?videoId='+utils.extractVideoID(req))
+    return 'cache?videoId='+utils.extractVideoID(req)
 
 
 @app.route('/searchVideo')
