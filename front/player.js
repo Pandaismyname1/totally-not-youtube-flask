@@ -83,19 +83,36 @@ function searchCallback(url) {
 function addQueueEntryUI(queueEntry)
 {
     queueContainer = document.getElementById('queueContainer');
+
     var queueEntryContainer = document.createElement('div');
     queueEntryContainer.id = 'queueEntryContainer' +queueEntry.link;
+    queueEntryContainer.style.height = '5em';
+    queueEntryContainer.style.width = '24em';
+    queueEntryContainer.style.padding = '0.5em';
+
     var queueEntryThumbnail = document.createElement('div');
     queueEntryThumbnail.id = 'queueEntryThumbnail' +queueEntry.link;
     queueEntryThumbnail.className = 'queueEntryThumbnail'
+    queueEntryThumbnail.style.height = '5em';
+    queueEntryThumbnail.style.width = '24em';
+    queueEntryThumbnail.style.cssFloat = 'left';
+    queueEntryThumbnail.style.backgroundImage = 'url(/thumbnails/'+queueEntry.thumbnail+')';
+
     var queueEntryTitle = document.createElement('p');
     queueEntryTitle.id = 'queueEntryTitle' +queueEntry.link;
     queueEntryTitle.className = 'queueEntryTitle';
-    queueEntryTitle.innerText = queueEntry.title;
+    queueEntryTitle.innerHTML = queueEntry.title;
+    queueEntryTitle.style.width = '15em';
+    queueEntryTitle.style.cssFloat = 'left';
+
     var queueEntryPlay = document.createElement('button');
     queueEntryPlay.id = 'queueEntryPlay' +queueEntry.link;
     queueEntryPlay.className = 'queueEntryPlay';
     queueEntryPlay.innerText = 'Play';
+    queueEntryPlay.style.bottom = '-2em';
+    queueEntryPlay.style.position = 'relative';
+    queueEntryPlay.style.cssFloat = 'left';
+
     queueEntryContainer.appendChild(queueEntryThumbnail);
     queueEntryContainer.appendChild(queueEntryTitle);
     queueEntryContainer.appendChild(queueEntryPlay);
