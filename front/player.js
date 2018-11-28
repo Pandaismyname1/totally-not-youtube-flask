@@ -71,7 +71,8 @@ function playNextSong() {
 // API Callbacks
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function searchCallback(json) {
-    let newSong = new queueEntry(json[0], json[1], json[2]);
+    jsonObj = JSON.parse(json)
+    let newSong = new queueEntry(jsonObj[0], jsonObj[1], jsonObj[2]);
     queue.push(newSong);
     addQueueEntryUI(newSong);
     console.log(queue);
