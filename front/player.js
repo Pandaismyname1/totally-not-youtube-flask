@@ -12,7 +12,7 @@ function init() {
     document.getElementById('audioPlayer').addEventListener('ended', onSongEnded);
 }
 
-function queueEntry(link, title, author, thumbnail)
+function queueEntry(link, title, thumbnail)
 {
     this.link = link;
     this.title = title;
