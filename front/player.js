@@ -74,12 +74,33 @@ function playNextSong() {
 function searchCallback(url) {
     let newSong = new queueEntry(url, null, null, null);
     queue.push(newSong);
+    addQueueEntryUI(newSong);
     console.log(queue);
     console.log(newSong);
     console.log(url)
 }
 
-
+function addQueueEntryUI(queueEntry)
+{
+    queueContainer = document.getElementById('queueContainer');
+    var queueEntryContainer = document.createElement('div');
+    queueEntryContainer.id = 'queueEntryContainer' +queueEntry.link;
+    var queueEntryThumbnail = document.createElement('div');
+    queueEntryThumbnail.id = 'queueEntryThumbnail' +queueEntry.link;
+    queueEntryThumbnail.className = 'queueEntryThumbnail'
+    var queueEntryTitle = document.createElement('p');
+    queueEntryTitle.id = 'queueEntryTitle' +queueEntry.link;
+    queueEntryTitle.className = 'queueEntryTitle';
+    queueEntryTitle.innerText = queueEntry.title;
+    var queueEntryPlay = document.createElement('button');
+    queueEntryPlay.id = 'queueEntryPlay' +queueEntry.link;
+    queueEntryPlay.className = 'queueEntryPlay';
+    queueEntryPlay.innerText = 'Play';
+    queueEntryContainer.appendChild(queueEntryThumbnail);
+    queueEntryContainer.appendChild(queueEntryTitle);
+    queueEntryContainer.appendChild(queueEntryPlay);
+    queueContainer.appendChild(queueEntryContainer);
+}
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // UI
