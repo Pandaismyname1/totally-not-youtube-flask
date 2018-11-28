@@ -66,9 +66,6 @@ function playNextSong() {
     playSong(queue[queueIndex].link);
 }
 
-function playSongInQueue(index) {
-    playSong(queue[index].link);
-}
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // API Callbacks
@@ -108,14 +105,16 @@ function addQueueEntryUI(queueEntry)
     queueEntryTitle.innerHTML = queueEntry.title;
     queueEntryTitle.style.width = '15em';
     queueEntryTitle.style.cssFloat = 'left';
+    queueEntryTitle.style.margin = '0px';
+    queueEntryTitle.style.paddingLeft = '0.5em';
 
-    var queueEntryPlay = document.createElement('button');
+    var queueEntryPlay = document.createElement('div');
     queueEntryPlay.id = 'queueEntryPlay' +queueEntry.link;
     queueEntryPlay.className = 'queueEntryPlay';
-    queueEntryPlay.innerText = 'Play';
-    queueEntryPlay.style.bottom = '-2em';
     queueEntryPlay.style.position = 'relative';
-    queueEntryPlay.style.cssFloat = 'left';
+    queueEntryPlay.style.width = '22em';
+    queueEntryPlay.style.height = '5em';
+    queueEntryPlay.style.opacity = 0;
     var queuePosition = queue.length - 1;
     queueEntryPlay.addEventListener('click', function() { playSongInQueue(queuePosition); } );
 
@@ -130,6 +129,11 @@ function addQueueEntryUI(queueEntry)
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function onPlayButtonPressed() {
     playSong(queue[0].link);
+}
+
+function playSongInQueue(index) {
+    queueIndex = index
+    playSong(queue[index].link);
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
