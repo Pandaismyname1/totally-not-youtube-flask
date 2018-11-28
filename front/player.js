@@ -103,7 +103,7 @@ function addQueueEntryUI(queueEntry)
     queueEntryTitle.id = 'queueEntryTitle' +queueEntry.link;
     queueEntryTitle.className = 'queueEntryTitle';
     queueEntryTitle.innerHTML = queueEntry.title;
-    queueEntryTitle.style.width = '15em';
+    queueEntryTitle.style.width = '12.7em';
     queueEntryTitle.style.cssFloat = 'left';
     queueEntryTitle.style.margin = '0px';
     queueEntryTitle.style.paddingLeft = '0.5em';
