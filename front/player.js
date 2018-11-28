@@ -70,13 +70,13 @@ function playNextSong() {
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // API Callbacks
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-function searchCallback(url) {
-    let newSong = new queueEntry(url, null, null, null);
+function searchCallback(json) {
+    let newSong = new queueEntry(json[0], json[1], json[2]);
     queue.push(newSong);
     addQueueEntryUI(newSong);
     console.log(queue);
     console.log(newSong);
-    console.log(url)
+    console.log(json)
 }
 
 function addQueueEntryUI(queueEntry)
