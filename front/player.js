@@ -65,7 +65,7 @@ function playNextSong() {
     {
         queueIndex=0;
     }
-    playSong(queue[queueIndex]);
+    playSong(queue[queueIndex].link);
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -85,7 +85,7 @@ function searchCallback(url) {
 // UI
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function onPlayButtonPressed() {
-    playSong(queue[0]);
+    playSong(queue[0].link);
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
