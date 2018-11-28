@@ -116,8 +116,8 @@ function addQueueEntryUI(queueEntry)
     queueEntryPlay.style.bottom = '-2em';
     queueEntryPlay.style.position = 'relative';
     queueEntryPlay.style.cssFloat = 'left';
-    queuePosition = queue.length;
-    queueEntryPlay.addEventListener('ended', function() { playSongInQueue(queuePosition); } );
+    var queuePosition = queue.length;
+    queueEntryPlay.addEventListener('click', function() { playSongInQueue(queuePosition); } );
 
     queueEntryContainer.appendChild(queueEntryThumbnail);
     queueEntryContainer.appendChild(queueEntryTitle);
