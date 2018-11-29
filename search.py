@@ -15,7 +15,7 @@ def searchOnYoutube(query):
     parameters.append(("maxResults", "25"))
     parameters.append(("type", "video"))
     parameters.append(("q", query))
-    parameters.append(("key", getYoutubeApiKey()))
+    parameters.append(("key", getYoutubeApiKey()[:-1]))
     requestUrl += utils.listToParams(parameters)
     print(requestUrl)
     hdr = {
