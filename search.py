@@ -17,6 +17,7 @@ def searchOnYoutube(query):
     parameters.append(("q", query))
     parameters.append(("key", getYoutubeApiKey()))
     requestUrl += utils.listToParams(parameters)
+    print(requestUrl)
     jsonText = urllib.request.urlopen(requestUrl).read()
     jsonObj = json.loads(json)
     videos = extractDataFromJson(jsonObj)
