@@ -1,3 +1,4 @@
+import urllib.parse
 def extractVideoID(url):
     return url.replace('https://www.youtube.com/watch?v=', '')
 
@@ -8,4 +9,4 @@ def listToParams(li):
         if index != 0:
             urlParams += '&'
         urlParams += li[index][0]+'='+li[index][1]
-    return urlParams
+    return urllib.parse.quote(urlParams)
