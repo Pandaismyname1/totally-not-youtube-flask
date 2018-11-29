@@ -5,7 +5,7 @@ import videos,utils, downloader, json
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/player')
 def player():
     return send_from_directory('front', 'player.html')
 
