@@ -96,6 +96,7 @@ function addQueueEntryUI(queueEntry)
     queueContainer = document.getElementById('queueContainer');
 
     var queueEntryContainer = document.createElement('div');
+    queueEntryContainer.className = 'queueEntryContainer'
     queueEntryContainer.id = 'queueEntryContainer' +queueEntry.link;
 
     var queueEntryThumbnail = document.createElement('div');
