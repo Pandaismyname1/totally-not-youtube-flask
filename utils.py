@@ -8,5 +8,5 @@ def listToParams(li):
     for index in range(len(li)):
         if index != 0:
             urlParams += '&'
-        urlParams += li[index][0]+'='+li[index][1]
-    return urllib.parse.quote(urlParams)
+        urlParams += urllib.parse.quote(li[index][0])+'='+urllib.parse.quote(li[index][1])
+    return urlParams
