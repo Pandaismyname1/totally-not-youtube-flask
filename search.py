@@ -9,7 +9,7 @@ import re
 def searchOnYoutube(query):
     print('searchOnYoutube ' + str(datetime.datetime.now()))
     query_string = urllib.parse.urlencode({"search_query": query})
-    requestUrl = 'https://www.googleapis.com/youtube/v3/search?'
+    requestUrl = 'http://www.googleapis.com/youtube/v3/search?'
     parameters = list()
     parameters.append(("part", "snippet"))
     parameters.append(("maxResults", "25"))
@@ -19,6 +19,7 @@ def searchOnYoutube(query):
     requestUrl += utils.listToParams(parameters)
     print(requestUrl)
     jsonText = urllib.request.urlopen(requestUrl).read()
+    print(jsonText)
     jsonObj = json.loads(json)
     videos = extractDataFromJson(jsonObj)
     print('search ' + str(datetime.datetime.now()))
