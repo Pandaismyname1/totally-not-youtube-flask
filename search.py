@@ -57,4 +57,4 @@ def extractDataFromJson(jsonObj):
 
 def getYoutubeApiKey():
     with open('../youtubeCredentials.txt', 'r') as f:
-        return f.readline()
+        return f.read()
