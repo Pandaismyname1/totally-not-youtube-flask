@@ -74,10 +74,38 @@ html, body {
     font-size: 1.4em;
     color: #ffffff;
 }
+.queueEntryContainer
+{
+    height: 5em;
+    width: 24em;
+    padding: 0.5em;
+    color: white;
+}
+.queueEntryThumbnail
+{
+    height: 5em;
+    width: 8.888em;
+    float: left;
+}
+.queueEntryTitle
+{
+    padding-left: 0.5em;
+    margin: 0px;
+    width: 12.7em;
+    float: left;
+}
+.queueEntryPlay
+{
+    position: relative;
+    width: 22em;
+    height: 5em;
+    opacity: 0;
+    transition: 0.3s;
+    background-color: #ff0000;
+}
 
 .queueEntryPlay:hover
 {
     opacity: 0.5;
-    background-color: #ff0000;
     transition: 0.3s;
 }

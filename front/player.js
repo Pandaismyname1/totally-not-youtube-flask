@@ -97,35 +97,20 @@ function addQueueEntryUI(queueEntry)
 
     var queueEntryContainer = document.createElement('div');
     queueEntryContainer.id = 'queueEntryContainer' +queueEntry.link;
-    queueEntryContainer.style.height = '5em';
-    queueEntryContainer.style.width = '24em';
-    queueEntryContainer.style.padding = '0.5em';
-    queueEntryContainer.style.color = 'white';
 
     var queueEntryThumbnail = document.createElement('div');
     queueEntryThumbnail.id = 'queueEntryThumbnail' +queueEntry.link;
     queueEntryThumbnail.className = 'queueEntryThumbnail'
-    queueEntryThumbnail.style.height = '5em';
-    queueEntryThumbnail.style.width = '8.888em';
-    queueEntryThumbnail.style.cssFloat = 'left';
     queueEntryThumbnail.style.backgroundImage = 'url('+queueEntry.thumbnail+')';
 
     var queueEntryTitle = document.createElement('p');
     queueEntryTitle.id = 'queueEntryTitle' +queueEntry.link;
     queueEntryTitle.className = 'queueEntryTitle';
     queueEntryTitle.innerHTML = queueEntry.title;
-    queueEntryTitle.style.width = '12.7em';
-    queueEntryTitle.style.cssFloat = 'left';
-    queueEntryTitle.style.margin = '0px';
-    queueEntryTitle.style.paddingLeft = '0.5em';
 
     var queueEntryPlay = document.createElement('div');
     queueEntryPlay.id = 'queueEntryPlay' +queueEntry.link;
     queueEntryPlay.className = 'queueEntryPlay';
-    queueEntryPlay.style.position = 'relative';
-    queueEntryPlay.style.width = '22em';
-    queueEntryPlay.style.height = '5em';
-    queueEntryPlay.style.opacity = 0;
     var queuePosition = queue.length - 1;
     queueEntryPlay.addEventListener('click', function() { playSongInQueue(queuePosition); } );
 
