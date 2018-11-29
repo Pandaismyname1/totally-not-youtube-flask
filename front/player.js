@@ -145,7 +145,7 @@ function onNextButtonPressed() {
     playNextSong();
 }
 function onPreviousButtonPressed() {
-    playSong(queue[0].link);
+    playPreviousSong(queue[0]);
 }
 
 function playSongInQueue(index) {
