@@ -51,8 +51,10 @@ function search() {
     request(obj,'/searchVideo?', searchCallback)
 }
 
-function playSong(url) {
-    document.getElementById('audioPlayerSource').src = url;
+function playSong(queueEntry) {
+    document.getElementById('playerInfoSongName').innerHTML = queueEntry.title;
+    document.getElementById('playerInfoSongUrl').innerHTML = 'https://www.youtube.com/watch?v='+queueEntry.link.toString().replace('cache?videoId=','');
+    document.getElementById('audioPlayerSource').src = queueEntry.link;
     document.getElementById('audioPlayer').load();
     document.getElementById('audioPlayer').play();
 }
@@ -63,7 +65,16 @@ function playNextSong() {
     {
         queueIndex=0;
     }
-    playSong(queue[queueIndex].link);
+    playSong(queue[queueIndex]);
+}
+
+function playPreviousSong() {
+    queueIndex -= 1;
+    if(queueIndex<0)
+    {
+        queueIndex=queue.length-1;
+    }
+    playSong(queue[queueIndex]);
 }
 
 
@@ -130,10 +141,16 @@ function addQueueEntryUI(queueEntry)
 function onPlayButtonPressed() {
     playSong(queue[0].link);
 }
+function onNextButtonPressed() {
+    playNextSong();
+}
+function onPreviousButtonPressed() {
+    playSong(queue[0].link);
+}
 
 function playSongInQueue(index) {
     queueIndex = index
-    playSong(queue[index].link);
+    playSong(queue[index]);
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
