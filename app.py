@@ -19,7 +19,6 @@ def resource(resource):
 def requestVideo():
     req = request.args['videoUrl']
     videos.downloadVideo(req)
-    print(req)
     meta = downloader.getMeta("https://www.youtube.com/watch?v=" +req)
     print(meta)
     return json.dumps(('cache?videoId='+utils.extractVideoID(req),meta[0],meta[1]))

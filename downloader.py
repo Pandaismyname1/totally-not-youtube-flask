@@ -6,11 +6,13 @@ import multiprocessing as mp
 from math import ceil
 import requests
 import sys, os
+import  datetime
 
 
 CHUNK_SIZE = 2**20  # bytes
 
 def searchInCache(url):
+    print('searchIncache '+str(datetime.datetime.now()))
     for downloadedFile in os.scandir('cache'):
         if (downloadedFile.name == url.replace('https://www.youtube.com/watch?v=','')+'.webm'):
             return downloadedFile
@@ -20,6 +22,7 @@ def searchInCache(url):
 
 
 def download(url):
+    print('pytube Download '+str(datetime.datetime.now()))
     # yt = YouTube(url,on_progress_callback=None)
     # streams = yt.streams.filter(only_audio=True).all()
     # maxAbr = 0
@@ -76,5 +79,6 @@ def download_chunk(args):
     return response.content
 
 def getMeta(url):
-    yt = YouTube(url)
+    print('pytube get meta '+str(datetime.datetime.now()))
+    yt = YouTube(url,defer_prefetch_init=False)
     return yt.title, yt.thumbnail_url
